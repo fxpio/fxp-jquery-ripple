@@ -1,0 +1,30 @@
+{
+  "name": "sonatra-jquery-ripple",
+  "version": "1.0.0",
+  "authors": [
+    "François Pluchino <francois.pluchino@sonatra.com>"
+  ],
+  "description": "A material design ripple effect for jquery",
+  "main": "js/ripple.js",
+  "keywords": [
+    "material",
+    "design",
+    "ripple",
+    "effect",
+    "jquery"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/sonatra/sonatra-jquery-ripple",
+  "dependencies": {
+    "jquery": "^2.1.0"
+  },
+  "devDependencies": {
+    "requirejs": "~2",
+    "bootstrap": "3.3.*"
+  },
+  "ignore": [
+    "examples",
+    "doc",
+    "README.md"
+  ]
+}
