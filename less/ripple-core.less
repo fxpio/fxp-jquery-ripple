@@ -1,0 +1,25 @@
+//
+// Ripple Core
+// --------------------------------------------------
+
+.ripple-action {
+    overflow: hidden;
+
+    > .ripple {
+        animation: ripple @ripple-animation-duration linear;
+    }
+}
+
+.ripple {
+    position: absolute;
+    display: block;
+    border-radius: 100%;
+    transform: scale(0);
+}
+
+@keyframes ripple {
+    100% {
+        opacity: 0;
+        transform: scale(2.5);
+    }
+}
