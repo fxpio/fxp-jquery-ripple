@@ -43,7 +43,7 @@
             duration;
 
         if (undefined !== clearRipple) {
-            clearTimeout(clearRipple);
+            window.clearTimeout(clearRipple);
             $target.removeData('ripple-clear');
         }
 
@@ -56,7 +56,7 @@
             $target.removeClass("ripple-action");
         }
 
-        if(!$ripple.width() && !$ripple.height()) {
+        if (!$ripple.width() && !$ripple.height()) {
             size = Math.max($target.outerWidth(), $target.outerHeight());
             $ripple.css({
                 height: size,
@@ -117,15 +117,20 @@
      * @this Ripple
      */
     Ripple.prototype.destroy = function () {
-        var $targets = null !== this.options.rippleSelector ?
-            $(this.options.rippleSelector, this.$element)
+        var $targets = null !== this.options.rippleSelector ? $(this.options.rippleSelector, this.$element)
             : this.$element;
 
         this.$element.off('click.st.ripple' + this.guid, this.options.rippleSelector, onClick);
 
-        $targets.each(function(index, target) {
-            $('> .ripple', target).remove();
-            $(target).removeClass('ripple-action');
+        $targets.each(function (index) {
+            var $target = $targets.eq(index);
+            $('> .ripple', $target).remove();
+            $target.removeClass('ripple-action');
+
+            if (undefined !== $target.data('ripple-clear')) {
+                window.clearTimeout($target.data('ripple-clear'));
+                $target.removeData('ripple-clear');
+            }
         });
     };
 
