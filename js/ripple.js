@@ -72,8 +72,8 @@
 
         duration = parseFloat($ripple.css('animation-duration')) * 1000;
         $target.data('ripple-clear', window.setTimeout(function () {
-            $target.removeClass('ripple-action');
             $ripple.remove();
+            $target.removeClass('ripple-action');
         }, duration));
     }
 
@@ -97,7 +97,7 @@
             this.options.rippleSelector = null;
         }
 
-        this.$element.on('click.st.ripple' + this.guid, this.options.rippleSelector, this, onClick);
+        this.$element.on('mousedown.st.ripple' + this.guid, this.options.rippleSelector, this, onClick);
     },
         old;
 
@@ -120,7 +120,7 @@
         var $targets = null !== this.options.rippleSelector ? $(this.options.rippleSelector, this.$element)
             : this.$element;
 
-        this.$element.off('click.st.ripple' + this.guid, this.options.rippleSelector, onClick);
+        this.$element.off('mousedown.st.ripple' + this.guid, this.options.rippleSelector, onClick);
 
         $targets.each(function (index) {
             var $target = $targets.eq(index);
