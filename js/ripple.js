@@ -38,13 +38,20 @@
         var self = event.data,
             $target = $(event.currentTarget),
             $ripple = $('> .ripple', $target),
-            size;
+            clearRipple = $target.data('ripple-clear'),
+            size,
+            duration;
+
+        if (undefined !== clearRipple) {
+            clearTimeout(clearRipple);
+            $target.removeData('ripple-clear');
+        }
 
         if (0 === $ripple.length) {
             $ripple = $('<span class="ripple"></span>');
             $ripple.addClass('ripple-' + self.options.rippleTheme);
 
-            $target.prepend($ripple);
+            $target.append($ripple);
         } else {
             $target.removeClass("ripple-action");
         }
@@ -62,6 +69,12 @@
             top: event.pageY - $target.offset().top - $ripple.height() / 2
         });
         $target.addClass("ripple-action");
+
+        duration = parseFloat($ripple.css('animation-duration')) * 1000;
+        $target.data('ripple-clear', window.setTimeout(function () {
+            $target.removeClass('ripple-action');
+            $ripple.remove();
+        }, duration));
     }
 
     // RIPPLE CLASS DEFINITION
