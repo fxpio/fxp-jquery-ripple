@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <title>Basic example - Sonatra Jquery Ripple</title>
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="../css/ripple.css" rel="stylesheet">
+    <style>
+        .panel-primary .panel-heading {
+            background: #1768AF;
+            border-bottom-color: #5B8FBB;
+        }
+        .panel-primary .list-group-item {
+            border-top-color: #5B8FBB;
+        }
+        .panel-primary .list-group,
+        .panel-primary .list-group-item,
+        .panel-primary .list-group-item a {
+            background: #337ab7;
+            color: #ffffff;
+        }
+
+        .list-group-item > span {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+<div class="navbar navbar-default has-nav-scrollable navbar-static-top">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#">Brand</a>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">Ripple light</div>
+                <ul class="list-group">
+                    <li class="list-group-item" data-ripple><a href="#">Cras justo odio</a></li>
+                    <li class="list-group-item" data-ripple><span>Dapibus ac facilisis in</span></li>
+                    <li class="list-group-item" data-ripple>Morbi leo risus</li>
+                    <li class="list-group-item" data-ripple>Porta ac consectetur ac</li>
+                    <li class="list-group-item" data-ripple>Vestibulum at eros</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="panel panel-primary" data-ripple data-ripple-theme="dark" data-ripple-selector="> .list-group > .list-group-item">
+                <div class="panel-heading">Ripple dark with delegate click event</div>
+                <ul class="list-group">
+                    <li class="list-group-item"><a href="#">Cras justo odio</a></li>
+                    <li class="list-group-item"><span>Dapibus ac facilisis in</span></li>
+                    <li class="list-group-item">Morbi leo risus</li>
+                    <li class="list-group-item">Porta ac consectetur ac</li>
+                    <li class="list-group-item">Vestibulum at eros</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var require = {
+        paths: {
+            'jquery': '../bower_components/jquery/dist/jquery',
+            'sonatra-jquery-ripple': '../js/ripple'
+        },
+        deps: ['sonatra-jquery-ripple']
+    };
+</script>
+<script src="../bower_components/requirejs/require.js" async="async"></script>
+</body>
+</html>
