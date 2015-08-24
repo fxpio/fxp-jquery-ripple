@@ -49,7 +49,6 @@
 
         if (0 === $ripple.length) {
             $ripple = $('<span class="ripple"></span>');
-            $ripple.addClass('ripple-' + self.options.rippleTheme);
 
             $target.append($ripple);
         } else {
@@ -64,6 +63,10 @@
             });
         }
 
+        if (null !== self.options.rippleTheme) {
+            $target.addClass('ripple-' + self.options.rippleTheme);
+        }
+
         $ripple.css({
             left: event.pageX - $target.offset().left - $ripple.width() / 2 + 'px',
             top: event.pageY - $target.offset().top - $ripple.height() / 2
@@ -74,6 +77,10 @@
         $target.data('ripple-clear', window.setTimeout(function () {
             $ripple.remove();
             $target.removeClass('ripple-action');
+
+            if (null !== self.options.rippleTheme) {
+                $target.removeClass('ripple-' + self.options.rippleTheme);
+            }
         }, duration));
     }
 
@@ -108,7 +115,7 @@
      */
     Ripple.DEFAULTS = {
         rippleSelector: null,
-        rippleTheme: 'light'
+        rippleTheme: null
     };
 
     /**
@@ -117,8 +124,9 @@
      * @this Ripple
      */
     Ripple.prototype.destroy = function () {
-        var $targets = null !== this.options.rippleSelector ? $(this.options.rippleSelector, this.$element)
-            : this.$element;
+        var self = this,
+            $targets = null !== this.options.rippleSelector ? $(this.options.rippleSelector, this.$element)
+                : this.$element;
 
         this.$element.off('click.st.ripple' + this.guid, this.options.rippleSelector, onClick);
 
@@ -126,6 +134,10 @@
             var $target = $targets.eq(index);
             $('> .ripple', $target).remove();
             $target.removeClass('ripple-action');
+
+            if (null !== self.options.rippleTheme) {
+                $target.removeClass('ripple-' + self.options.rippleTheme);
+            }
 
             if (undefined !== $target.data('ripple-clear')) {
                 window.clearTimeout($target.data('ripple-clear'));
