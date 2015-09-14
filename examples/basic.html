@@ -16,13 +16,29 @@
         }
         .panel-primary .list-group,
         .panel-primary .list-group-item,
-        .panel-primary .list-group-item a {
+        .panel-primary .list-group-item a,
+        .panel-primary .panel-body {
             background: #337ab7;
             color: #ffffff;
         }
 
         .list-group-item > span {
             display: block;
+        }
+
+        .circle-example {
+            margin: 20px;
+            width: 100px;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 50%;
+        }
+        .panel-primary .circle-example {
+            background: #337ab7;
+            border-color: #5b8fbb;
         }
     </style>
 </head>
@@ -61,6 +77,30 @@
             </div>
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">Ripple light with border radius</div>
+                <div class="panel-body">
+                    <div class="circle-example" data-ripple data-ripple-theme="light">
+                        Foo
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Ripple dark with border radius</div>
+                <div class="panel-body">
+                    <div class="circle-example" data-ripple data-ripple-theme="dark">
+                        Foo
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <script>
     var require = {
@@ -68,7 +108,10 @@
             'jquery': '../bower_components/jquery/dist/jquery',
             'sonatra-jquery-ripple': '../js/ripple'
         },
-        deps: ['sonatra-jquery-ripple']
+        deps: ['sonatra-jquery-ripple'],
+        callback: function () {
+            $(window).trigger('load');
+        }
     };
 </script>
 <script src="../bower_components/requirejs/require.js" async="async"></script>
