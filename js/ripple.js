@@ -40,7 +40,8 @@
             $ripple = $('> .ripple', $target),
             clearRipple = $target.data('ripple-clear'),
             size,
-            duration;
+            duration,
+            zindex;
 
         if (undefined !== clearRipple) {
             window.clearTimeout(clearRipple);
@@ -71,12 +72,16 @@
             left: event.pageX - $target.offset().left - $ripple.width() / 2 + 'px',
             top: event.pageY - $target.offset().top - $ripple.height() / 2
         });
+
+        zindex = parseInt($target.css('z-index'), 10);
+        $target.css('z-index', isNaN(zindex) ? 0 : zindex);
         $target.addClass("ripple-action");
 
         duration = parseFloat($ripple.css('animation-duration')) * 1000;
         $target.data('ripple-clear', window.setTimeout(function () {
             $ripple.remove();
             $target.removeClass('ripple-action');
+            $target.css('z-index', '');
 
             if (null !== self.options.rippleTheme) {
                 $target.removeClass('ripple-' + self.options.rippleTheme);
