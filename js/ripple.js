@@ -149,6 +149,8 @@
                 $target.removeData('ripple-clear');
             }
         });
+
+        this.$element.removeData('st.ripple');
     };
 
 
