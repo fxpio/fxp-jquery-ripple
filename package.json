@@ -1,7 +1,30 @@
 {
-  "name": "sonatra-jquery-ripple",
-  "description": " ",
-  "repository": {},
+  "name": "@sonatra/jquery-ripple",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": "François Pluchino <francois.pluchino@sonatra.com>",
+  "contributors": [],
+  "description": "A material design ripple effect for jquery",
+  "keywords": [
+    "material",
+    "design",
+    "ripple",
+    "effect",
+    "jquery"
+  ],
+  "homepage": "https://github.com/sonatra/sonatra-jquery-ripple",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sonatra/sonatra-jquery-ripple.git"
+  },
+  "bugs": {
+    "url" : "https://github.com/sonatra/sonatra-jquery-ripple/issues"
+  },
+  "engines": {},
+  "main": "js/ripple.js",
+  "dependencies": {
+    "jquery": "^2.1.0"
+  },
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-cli": "^0.1.13",
@@ -9,9 +32,8 @@
     "time-grunt": "^1.2.1",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-contrib-less": "^1.0.1",
-    "grunt-browser-sync": "^2.1.3"
-  },
-  "engines": {
-    "node": ">=0.10.0"
+    "grunt-browser-sync": "^2.1.3",
+    "requirejs": "^2.0.0",
+    "bootstrap": "^3.3.0"
   }
 }
