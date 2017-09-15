@@ -18,7 +18,7 @@
     "url": "https://github.com/sonatra/sonatra-jquery-ripple.git"
   },
   "bugs": {
-    "url" : "https://github.com/sonatra/sonatra-jquery-ripple/issues"
+    "url": "https://github.com/sonatra/sonatra-jquery-ripple/issues"
   },
   "engines": {},
   "main": "js/ripple.js",
