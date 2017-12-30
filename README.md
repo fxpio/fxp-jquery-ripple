@@ -1,7 +1,7 @@
-Sonatra Jquery Ripple
-=====================
+Fxp Jquery Ripple
+=================
 
-Sonatra Jquery Ripple is a material design ripple effect for jquery.
+Fxp Jquery Ripple is a material design ripple effect for jquery.
 
 Documentation
 -------------
@@ -26,10 +26,10 @@ This javascript component is under the MIT license. See the complete license:
 About
 -----
 
-Sonatra Jquery Ripple is a [sonatra](https://github.com/sonatra) initiative.
-See also the list of [contributors](https://github.com/sonatra/sonatra-jquery-ripple/graphs/contributors).
+Fxp Jquery Ripple is a [François Pluchino](https://github.com/francoispluchino) initiative.
+See also the list of [contributors](https://github.com/fxpio/fxp-jquery-ripple/graphs/contributors).
 
 Reporting an issue or a feature request
 ---------------------------------------
 
-Issues and feature requests are tracked in the [Github issue tracker](https://github.com/sonatra/sonatra-jquery-ripple/issues).
+Issues and feature requests are tracked in the [Github issue tracker](https://github.com/fxpio/fxp-jquery-ripple/issues).

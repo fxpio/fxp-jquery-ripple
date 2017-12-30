@@ -1,7 +1,7 @@
 /*
- * This file is part of the Sonatra package.
+ * This file is part of the Fxp package.
  *
- * (c) François Pluchino <francois.pluchino@sonatra.com>
+ * (c) François Pluchino <francois.pluchino@gmail.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -109,7 +109,7 @@
             this.options.rippleSelector = null;
         }
 
-        this.$element.on('click.st.ripple' + this.guid, this.options.rippleSelector, this, onClick);
+        this.$element.on('click.fxp.ripple' + this.guid, this.options.rippleSelector, this, onClick);
     },
         old;
 
@@ -133,7 +133,7 @@
             $targets = null !== this.options.rippleSelector ? $(this.options.rippleSelector, this.$element)
                 : this.$element;
 
-        this.$element.off('click.st.ripple' + this.guid, this.options.rippleSelector, onClick);
+        this.$element.off('click.fxp.ripple' + this.guid, this.options.rippleSelector, onClick);
 
         $targets.each(function (index) {
             var $target = $targets.eq(index);

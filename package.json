@@ -1,8 +1,8 @@
 {
-  "name": "@sonatra/jquery-ripple",
+  "name": "@fxp/jquery-ripple",
   "version": "1.0.0",
   "license": "MIT",
-  "author": "François Pluchino <francois.pluchino@sonatra.com>",
+  "author": "François Pluchino <francois.pluchino@gmail.com>",
   "contributors": [],
   "description": "A material design ripple effect for jquery",
   "keywords": [
@@ -12,13 +12,13 @@
     "effect",
     "jquery"
   ],
-  "homepage": "https://github.com/sonatra/sonatra-jquery-ripple",
+  "homepage": "https://github.com/fxpio/fxp-jquery-ripple",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sonatra/sonatra-jquery-ripple.git"
+    "url": "https://github.com/fxpio/fxp-jquery-ripple.git"
   },
   "bugs": {
-    "url": "https://github.com/sonatra/sonatra-jquery-ripple/issues"
+    "url": "https://github.com/fxpio/fxp-jquery-ripple/issues"
   },
   "engines": {},
   "main": "js/ripple.js",

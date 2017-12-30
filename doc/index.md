@@ -12,7 +12,7 @@ Installation
 ------------
 
 ```
-npm install @sonatra/jquery-ripple --save
+npm install @fxp/jquery-ripple --save
 ```
 
 Dev installation
