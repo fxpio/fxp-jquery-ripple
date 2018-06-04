@@ -23,10 +23,6 @@ const DEFAULTS = {
  */
 export default class Ripple
 {
-    guid;
-    options;
-    $element;
-
     /**
      * Constructor.
      *
