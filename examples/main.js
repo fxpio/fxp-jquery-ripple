@@ -7,6 +7,6 @@
  * file that was distributed with this source code.
  */
 
-import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/less/bootstrap.less';
 import '../less/ripple.less';
 import '../js/ripple';
