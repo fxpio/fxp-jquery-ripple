@@ -66,7 +66,7 @@ export default class Ripple
             }
         });
 
-        this.$element.removeData('st.ripple');
+        this.$element.removeData('fxp.ripple');
     }
 }
 
