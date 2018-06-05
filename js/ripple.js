@@ -8,7 +8,9 @@
  */
 
 import pluginify from '@fxp/jquery-pluginify';
+import BasePlugin from '@fxp/jquery-pluginify/js/plugin';
 import {onClick} from "./utils/events";
+import $ from "jquery";
 
 /**
  * Defaults options.
@@ -21,7 +23,7 @@ const DEFAULTS = {
 /**
  * Ripple class.
  */
-export default class Ripple
+export default class Ripple extends BasePlugin
 {
     /**
      * Constructor.
@@ -30,9 +32,7 @@ export default class Ripple
      * @param {object}      options The options
      */
     constructor(element, options = {}) {
-        this.guid     = $.guid;
-        this.options  = $.extend(true, {}, DEFAULTS, options);
-        this.$element = $(element);
+        super(element, $.extend(true, {}, DEFAULTS, options));
 
         if ('' === this.options.rippleSelector) {
             this.options.rippleSelector = null;
@@ -65,6 +65,8 @@ export default class Ripple
                 $target.removeData('ripple-clear');
             }
         });
+
+        super.destroy();
     }
 }
 
