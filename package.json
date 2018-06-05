@@ -36,6 +36,7 @@
     "bootstrap": "^3.3.7",
     "copy-webpack-plugin": "^4.5.1",
     "less": "^3.0.4",
-    "less-loader": "^4.1.0"
+    "less-loader": "^4.1.0",
+    "uglifyjs-webpack-plugin": "^1.2.5"
   }
 }
