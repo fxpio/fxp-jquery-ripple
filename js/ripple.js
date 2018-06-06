@@ -13,14 +13,6 @@ import {onClick} from "./utils/events";
 import $ from "jquery";
 
 /**
- * Defaults options.
- */
-const DEFAULTS = {
-    rippleSelector: null,
-    rippleTheme: null
-};
-
-/**
  * Ripple class.
  */
 export default class Ripple extends BasePlugin
@@ -32,7 +24,7 @@ export default class Ripple extends BasePlugin
      * @param {object}      options The options
      */
     constructor(element, options = {}) {
-        super(element, $.extend(true, {}, DEFAULTS, options));
+        super(element, $.extend(true, {}, Ripple.defaultOptions, options));
 
         if ('' === this.options.rippleSelector) {
             this.options.rippleSelector = null;
@@ -69,5 +61,14 @@ export default class Ripple extends BasePlugin
         super.destroy();
     }
 }
+
+/**
+ * Defaults options.
+ */
+Ripple.defaultOptions = {
+    rippleSelector: null,
+    rippleTheme: null
+};
+
 
 pluginify('ripple', 'fxp.ripple', Ripple, true, '[data-ripple]');
