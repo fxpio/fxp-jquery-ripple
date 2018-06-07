@@ -70,5 +70,4 @@ Ripple.defaultOptions = {
     rippleTheme: null
 };
 
-
 pluginify('ripple', 'fxp.ripple', Ripple, true, '[data-ripple]');
