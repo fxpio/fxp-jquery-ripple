@@ -24,7 +24,7 @@ export default class Ripple extends BasePlugin
      * @param {object}      options The options
      */
     constructor(element, options = {}) {
-        super(element, $.extend(true, {}, Ripple.defaultOptions, options));
+        super(element, options);
 
         if ('' === this.options.rippleSelector) {
             this.options.rippleSelector = null;
