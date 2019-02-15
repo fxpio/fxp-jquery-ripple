@@ -30,6 +30,18 @@ const baseConfig = {
     ]
 };
 
+const iifeConfig = {
+    ...baseConfig,
+    output: {
+        format: 'iife',
+        name: 'FxpRipple',
+        exports: 'named',
+        globals: {
+            jquery: 'jQuery'
+        }
+    }
+};
+
 const uglifyConfig = {
     compress: {
         pure_getters: true,
@@ -41,28 +53,18 @@ const uglifyConfig = {
 
 export default [
     {
-        ...baseConfig,
+        ...iifeConfig,
         output: {
-            file: 'dist/ripple.js',
-            format: 'iife',
-            name: 'FxpRipple',
-            exports: 'named',
-            globals: {
-                jquery: 'jQuery'
-            }
+            ...iifeConfig.output,
+            file: 'dist/ripple.js'
         }
     },
     {
-        ...baseConfig,
+        ...iifeConfig,
         plugins: [...baseConfig.plugins, uglify(uglifyConfig)],
         output: {
-            file: 'dist/ripple.min.js',
-            format: 'iife',
-            name: 'FxpRipple',
-            exports: 'named',
-            globals: {
-                jquery: 'jQuery'
-            }
+            ...iifeConfig.output,
+            file: 'dist/ripple.min.js'
         }
     }
 ];
