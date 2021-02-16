@@ -1,9 +1,11 @@
 var FxpRipple = (function (exports, $$1) {
   'use strict';
 
-  $$1 = $$1 && $$1.hasOwnProperty('default') ? $$1['default'] : $$1;
+  $$1 = $$1 && Object.prototype.hasOwnProperty.call($$1, 'default') ? $$1['default'] : $$1;
 
   function _typeof(obj) {
+    "@babel/helpers - typeof";
+
     if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
       _typeof = function (obj) {
         return typeof obj;
@@ -70,6 +72,19 @@ var FxpRipple = (function (exports, $$1) {
     return _setPrototypeOf(o, p);
   }
 
+  function _isNativeReflectConstruct() {
+    if (typeof Reflect === "undefined" || !Reflect.construct) return false;
+    if (Reflect.construct.sham) return false;
+    if (typeof Proxy === "function") return true;
+
+    try {
+      Date.prototype.toString.call(Reflect.construct(Date, [], function () {}));
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
   function _assertThisInitialized(self) {
     if (self === void 0) {
       throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
@@ -84,6 +99,25 @@ var FxpRipple = (function (exports, $$1) {
     }
 
     return _assertThisInitialized(self);
+  }
+
+  function _createSuper(Derived) {
+    var hasNativeReflectConstruct = _isNativeReflectConstruct();
+
+    return function _createSuperInternal() {
+      var Super = _getPrototypeOf(Derived),
+          result;
+
+      if (hasNativeReflectConstruct) {
+        var NewTarget = _getPrototypeOf(this).constructor;
+
+        result = Reflect.construct(Super, arguments, NewTarget);
+      } else {
+        result = Super.apply(this, arguments);
+      }
+
+      return _possibleConstructorReturn(this, result);
+    };
   }
 
   function _superPropBase(object, property) {
@@ -196,9 +230,7 @@ var FxpRipple = (function (exports, $$1) {
    * Base class for plugin.
    */
 
-  var BasePlugin =
-  /*#__PURE__*/
-  function () {
+  var BasePlugin = /*#__PURE__*/function () {
     /**
      * Constructor.
      *
@@ -236,21 +268,21 @@ var FxpRipple = (function (exports, $$1) {
 
     }], [{
       key: "defaultOptions",
-      set: function set(options) {
-        DEFAULT_OPTIONS[this.name] = $$1.extend(true, {}, DEFAULT_OPTIONS[this.name], options);
-      }
+      get:
       /**
        * Get the default options.
        *
        * @return {object}
        */
-      ,
-      get: function get() {
+      function get() {
         if (undefined === DEFAULT_OPTIONS[this.name]) {
           DEFAULT_OPTIONS[this.name] = {};
         }
 
         return DEFAULT_OPTIONS[this.name];
+      },
+      set: function set(options) {
+        DEFAULT_OPTIONS[this.name] = $$1.extend(true, {}, DEFAULT_OPTIONS[this.name], options);
       }
     }]);
 
@@ -327,10 +359,10 @@ var FxpRipple = (function (exports, $$1) {
    * Ripple class.
    */
 
-  var Ripple =
-  /*#__PURE__*/
-  function (_BasePlugin) {
+  var Ripple = /*#__PURE__*/function (_BasePlugin) {
     _inherits(Ripple, _BasePlugin);
+
+    var _super = _createSuper(Ripple);
 
     /**
      * Constructor.
@@ -345,13 +377,13 @@ var FxpRipple = (function (exports, $$1) {
 
       _classCallCheck(this, Ripple);
 
-      _this = _possibleConstructorReturn(this, _getPrototypeOf(Ripple).call(this, element, options));
+      _this = _super.call(this, element, options);
 
       if ('' === _this.options.rippleSelector) {
         _this.options.rippleSelector = null;
       }
 
-      _this.$element.on('click.fxp.ripple' + _this.guid, _this.options.rippleSelector, _assertThisInitialized(_assertThisInitialized(_this)), onClick);
+      _this.$element.on('click.fxp.ripple' + _this.guid, _this.options.rippleSelector, _assertThisInitialized(_this), onClick);
 
       return _this;
     }
